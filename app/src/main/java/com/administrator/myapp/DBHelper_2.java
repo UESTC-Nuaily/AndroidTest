@@ -65,20 +65,22 @@ public class DBHelper_2 extends AsyncTask<Void,Void,List<DataResult>> {
     protected void onPostExecute(List<DataResult> drList) {
         List<String> list = drList.get(0).getStrList();
         String temp="";
+        String[] t=new String[2];
         //循环遍历查询的数据
         for(int i=0;i<list.size()/3;i++){
             for(int n=0;n<list.get(i*2+list.size()/3).length();n++){
-                if(!Character.isDigit(list.get(i*2+list.size()/3).charAt(n))){
+                if(!Character.isDigit(list.get(i*2+list.size()/3).charAt(n))&&list.get(i*2+list.size()/3).charAt(n)!='～'){
                     int a=i*2+list.size()/3;
                     if(n==0){
                         temp="0";
                         break;
                     }
                     temp=list.get(a).substring(0,n);
+                    t=temp.split("～");
                     break;
                 }
             }
-            if(Float.parseFloat(temp)>Float.parseFloat(list.get(i))){
+            if(Float.parseFloat(t[1])>Float.parseFloat(list.get(i))&&Float.parseFloat(t[0])<=Float.parseFloat(list.get(i))){
                 temp="true";
             }else{
                 temp="false";
@@ -159,7 +161,7 @@ public class DBHelper_2 extends AsyncTask<Void,Void,List<DataResult>> {
                 if(position==0){
                     List<String> list = drList.get(0).getStrList();
                     Log.d("DataBase",result.getString("PLCSBDESIGN_NAME"));
-                    list.add(result.getString("PLCSBDESIGN_HIGHLIMIT")+result.getString("PLCSBDESIGN_UNIT"));
+                    list.add(result.getString("PLCSBDESIGN_LOWLIMIT")+"～"+result.getString("PLCSBDESIGN_HIGHLIMIT")+result.getString("PLCSBDESIGN_UNIT"));
                     list.add(result.getString("PLCSBDESIGN_NAME"));
                     drList.get(0).setStrList(list);
                 }

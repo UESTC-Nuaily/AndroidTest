@@ -17,7 +17,7 @@
         android:id="@+id/parameter1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="3"
+        android:layout_weight="2"
         android:paddingBottom="1dp"
         android:paddingTop="1dp"
         android:layout_centerHorizontal="true"
@@ -65,11 +65,11 @@
             android:id="@+id/notice1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:paddingBottom="1dp"
             android:paddingTop="1dp"
             android:layout_centerHorizontal="true"
-            android:text=""
+            android:text="状态"
             android:textColor="@android:color/black"
             android:textSize="18sp" />
         <View
