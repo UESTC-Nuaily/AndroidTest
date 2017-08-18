@@ -1,6 +1,7 @@
 package com.administrator.myapp.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -101,13 +102,19 @@ public class MyListViewAdapter2 extends BaseAdapter {
             holder.tv_3.setText(dataValue_1);
             strList_3.set(posi, dataValue_1);
 
-            holder.tv_4.setText(dataValue_4);
-            strList_4.set(posi, dataValue_4);
+            holder.tv_4.setText("●");
+            if(dataValue_4.equals("true")){
+                holder.tv_4.setTextColor(Color.rgb(0, 255, 128));
+            }else{
+                holder.tv_4.setTextColor(Color.rgb(240, 27, 45));
+            }
+            strList_4.set(posi, "●");
         } else {
             strList_1.set(posi, dataValue_3);
             strList_2.set(posi, dataValue_2);
             strList_3.set(posi, dataValue_1);
-            strList_4.set(posi, dataValue_4);
+            strList_4.set(posi, "●");
+
         }
 
         //Log.d("dataValue","updateView:==============================================");

@@ -27,7 +27,7 @@
         android:paddingBottom="3dp"
         android:gravity="center_vertical|right"
         android:textColor="@android:color/black"
-        android:textSize="18sp" />
+        android:textSize="14sp" />
 
     <View
         android:layout_width="match_parent"
@@ -55,7 +55,7 @@
             android:layout_centerHorizontal="true"
             android:text="类目名称"
             android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
         <View
             android:layout_width="1dp"
             android:layout_height="fill_parent"
@@ -73,7 +73,7 @@
             android:layout_centerHorizontal="true"
             android:text="参数名称"
             android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
         <View
             android:layout_width="1dp"
             android:layout_height="fill_parent"
@@ -91,7 +91,7 @@
             android:layout_centerHorizontal="true"
             android:text="设计值"
             android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
         <View
             android:layout_width="1dp"
             android:layout_height="fill_parent"
@@ -109,7 +109,7 @@
             android:layout_centerHorizontal="true"
             android:text="实际值"
             android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
         <View
             android:layout_width="1dp"
             android:layout_height="fill_parent"
@@ -126,7 +126,7 @@
             android:layout_centerHorizontal="true"
             android:text="状态"
             android:textColor="@android:color/black"
-            android:textSize="18sp" />
+            android:textSize="14sp" />
         <View
             android:layout_width="1dp"
             android:layout_height="fill_parent"
