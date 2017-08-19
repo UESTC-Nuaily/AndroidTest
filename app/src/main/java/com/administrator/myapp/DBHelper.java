@@ -14,8 +14,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created by Administrator on 2017/7/30.
@@ -92,15 +90,6 @@ public class DBHelper extends AsyncTask<Void,Void,List<DataResult>> {
         }
     }
 
-    public boolean isNumeric(String str){
-        Pattern pattern = Pattern.compile("[0-9]");
-        Matcher isNum = pattern.matcher(str);
-        if( !isNum.matches() ){
-            return false;
-        }
-        return true;
-    }
-
     @Override
     protected List<DataResult> doInBackground(Void... voids) {
         //返回参数
@@ -125,7 +114,6 @@ public class DBHelper extends AsyncTask<Void,Void,List<DataResult>> {
                 sql = "select * from (select * from mt_plcsb_JHLCFJ01 order by JHLCFJ01_time desc) where rownum=1";    //查询表名为“MT_PLCSB_JHYSJ”的所有内容
             }else if(position==2){
                 sql = "select * from (select * from mt_plcsb_JHLCFJ02 order by JHLCFJ02_time desc) where rownum=1";    //查询表名为“MT_PLCSB_JHYSJ”的所有内容
-
             }
             pre = con.prepareStatement(sql);
             result = pre.executeQuery();
@@ -166,20 +154,20 @@ public class DBHelper extends AsyncTask<Void,Void,List<DataResult>> {
                     list.add(result.getString("JHLCFJ01_LCFJZS"));
                     list.add(result.getString("JHLCFJ01_LCFJJQYL"));
                     list.add(result.getString("JHLCFJ01_LCFJCKWD"));
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
                     dr.setStrList(list);
                 }
                 else if(position==2){
@@ -188,20 +176,20 @@ public class DBHelper extends AsyncTask<Void,Void,List<DataResult>> {
                     list.add(result.getString("JHLCFJ02_LCFJZS"));
                     list.add(result.getString("JHLCFJ02_LCFJJQYL"));
                     list.add(result.getString("JHLCFJ02_LCFJCKWD"));
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
-                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
+//                    list.add("");
                     dr.setStrList(list);
                 }
                 //添加到结果列表
@@ -242,17 +230,6 @@ public class DBHelper extends AsyncTask<Void,Void,List<DataResult>> {
                     list.add(result.getString("PLCSBDESIGN_LOWLIMIT")+"～"+result.getString("PLCSBDESIGN_HIGHLIMIT")+result.getString("PLCSBDESIGN_UNIT"));
                     list.add(result.getString("PLCSBDESIGN_NAME"));
                     drList.get(0).setStrList(list);
-                }
-            }
-
-            //补足列表参数
-            if(position==1){
-                for(int i=0;i<28;i++){
-                    drList.get(0).getStrList().add("");
-                }
-            } else if(position==2){
-                for(int i=0;i<28;i++){
-                    drList.get(0).getStrList().add("");
                 }
             }
 

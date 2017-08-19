@@ -167,14 +167,6 @@ public class DBHelper_2 extends AsyncTask<Void,Void,List<DataResult>> {
                 }
             }
 
-            //补足列表参数
-            if(position==1){
-                for(int i=0;i<28;i++){
-                    drList.get(0).getStrList().add("");
-                }
-            }
-
-
         } catch (Exception e) {
             e.printStackTrace();
         } finally{
