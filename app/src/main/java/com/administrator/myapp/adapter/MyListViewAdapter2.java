@@ -105,16 +105,18 @@ public class MyListViewAdapter2 extends BaseAdapter {
             holder.tv_4.setText("●");
             if(dataValue_4.equals("true")){
                 holder.tv_4.setTextColor(Color.rgb(0, 255, 128));
-            }else{
+                strList_4.set(posi, "●");
+            }else if(dataValue_4.equals("false")){
                 holder.tv_4.setTextColor(Color.rgb(240, 27, 45));
+                strList_4.set(posi, "●");
+            }else{
+                holder.tv_4.setTextColor(Color.rgb(255, 255, 255));
             }
-            strList_4.set(posi, "●");
         } else {
             strList_1.set(posi, dataValue_3);
             strList_2.set(posi, dataValue_2);
             strList_3.set(posi, dataValue_1);
             strList_4.set(posi, "●");
-
         }
 
         //Log.d("dataValue","updateView:==============================================");

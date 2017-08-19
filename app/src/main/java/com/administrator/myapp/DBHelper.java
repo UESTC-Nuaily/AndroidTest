@@ -67,26 +67,30 @@ public class DBHelper extends AsyncTask<Void,Void,List<DataResult>> {
         String temp="";
         String[] t=new String[2];
         //循环遍历查询的数据
-        for(int i=0;i<list.size()/3;i++){
-            for(int n=0;n<list.get(i*2+list.size()/3).length();n++){
-                if(!Character.isDigit(list.get(i*2+list.size()/3).charAt(n))&&list.get(i*2+list.size()/3).charAt(n)!='～'){
-                    int a=i*2+list.size()/3;
-                    if(n==0){
-                        temp="0";
+        for(int i=0;i<17;i++){
+            if(i>list.size()/3-1){
+                adapter2.updataView(i,mListView2," "," "," "," ");
+            }else {
+                for (int n = 0; n < list.get(i * 2 + list.size() / 3).length(); n++) {
+                    if (!Character.isDigit(list.get(i * 2 + list.size() / 3).charAt(n)) && list.get(i * 2 + list.size() / 3).charAt(n) != '～') {
+                        int a = i * 2 + list.size() / 3;
+                        if (n == 0) {
+                            temp = "0";
+                            break;
+                        }
+                        temp = list.get(a).substring(0, n);
+                        t = temp.split("～");
                         break;
                     }
-                    temp=list.get(a).substring(0,n);
-                    t=temp.split("～");
-                    break;
                 }
+                if (Float.parseFloat(t[1]) > Float.parseFloat(list.get(i)) && Float.parseFloat(t[0]) <= Float.parseFloat(list.get(i))) {
+                    temp = "true";
+                } else {
+                    temp = "false";
+                }
+                //更新数据
+                adapter2.updataView(i, mListView2, list.get(i), list.get(i * 2 + list.size() / 3), list.get(i * 2 + list.size() / 3 + 1), temp);
             }
-            if(Float.parseFloat(t[1])>Float.parseFloat(list.get(i))&&Float.parseFloat(t[0])<=Float.parseFloat(list.get(i))){
-                temp="true";
-            }else{
-                temp="false";
-            }
-            //更新数据
-            adapter2.updataView(i,mListView2,list.get(i),list.get(i*2+list.size()/3),list.get(i*2+list.size()/3+1),temp);
         }
     }
 
