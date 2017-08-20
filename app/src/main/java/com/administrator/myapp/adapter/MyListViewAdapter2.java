@@ -66,8 +66,14 @@ public class MyListViewAdapter2 extends BaseAdapter {
         vh.tv_1.setText(strList_1.get(position));
         vh.tv_2.setText(strList_2.get(position));
         vh.tv_3.setText(strList_3.get(position));
-        vh.tv_4.setText(strList_4.get(position));
-
+        vh.tv_4.setText("●");
+        if(strList_4.get(position).equals("true")){
+            vh.tv_4.setTextColor(Color.rgb(0, 255, 128));
+        }else if(strList_4.get(position).equals("false")){
+            vh.tv_4.setTextColor(Color.rgb(240, 27, 45));
+        }else{
+            vh.tv_4.setTextColor(Color.rgb(255, 255, 255));
+        }
 
 
         return convertView;
@@ -103,12 +109,11 @@ public class MyListViewAdapter2 extends BaseAdapter {
             strList_3.set(posi, dataValue_1);
 
             holder.tv_4.setText("●");
+            strList_4.set(posi, dataValue_4);
             if(dataValue_4.equals("true")){
                 holder.tv_4.setTextColor(Color.rgb(0, 255, 128));
-                strList_4.set(posi, "●");
             }else if(dataValue_4.equals("false")){
                 holder.tv_4.setTextColor(Color.rgb(240, 27, 45));
-                strList_4.set(posi, "●");
             }else{
                 holder.tv_4.setTextColor(Color.rgb(255, 255, 255));
             }
