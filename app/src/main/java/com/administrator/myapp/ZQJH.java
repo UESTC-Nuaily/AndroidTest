@@ -7,8 +7,10 @@ import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.administrator.myapp.adapter.MyListViewAdapter1;
 import com.administrator.myapp.adapter.MyListViewAdapter2;
@@ -28,11 +30,25 @@ public class ZQJH extends AppCompatActivity {
     private MyListViewAdapter1 adapter1;
     private MyListViewAdapter2 adapter2;
     private Context context;
-
+    private Button button6;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.datea);
+        button6 = (Button) findViewById(R.id.button6);
+        button6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(),
+                        "刷新数据中...", Toast.LENGTH_SHORT).show();
+                new TimeThread().start(); //启动新的线程
+                initView();
+                //刷新右边列表
+                DBHelper db = new DBHelper(context, mListView2, adapter2,0);
+                db.execute();
+            }
+        });
+
         new TimeThread().start(); //启动新的线程
         initView();
         context = this;
